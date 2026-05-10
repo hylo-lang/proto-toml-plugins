@@ -2,12 +2,15 @@
 
 A collection of plugins for the [proto](https://github.com/moonrepo/proto) tool manager adding support for Hylo tools.
 
+## Prerequisite: `proto`
+Install the proto toolchain manager: https://moonrepo.dev/docs/proto/install
+
 ## `hylo` plugin - Hylo's compiler
 Plugin for installing the [Hylo compiler](https://github.com/hylo-lang/hylo-new).
 
 - Install globally:
 ```shell
-proto plugin add hylo "source:https://raw.githubusercontent.com/hylo-lang/proto-toml-plugins/main/hylo/plugin.toml" --global
+proto plugin add hylo "source:https://raw.githubusercontent.com/hylo-lang/proto-toml-plugins/main/hylo/plugin.toml" --to global
 proto install hylo
 ```
 - Install per project:
