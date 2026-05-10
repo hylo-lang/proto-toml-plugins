@@ -1,8 +1,8 @@
 import { run } from "../testkit.js";
 
 run({
-	name: "xcodes",
+	name: "hylo",
 	afterInstall: async ($) => {
-		await $`xcodes --version`;
+		await $`hc --help`;
 	},
 });

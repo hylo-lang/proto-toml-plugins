@@ -1,0 +1,31 @@
+# A TOML plugin for hylo:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "hylo"
+type = "cli"
+
+[platform.linux]
+download-file = "hylo-v{version}-linux-{arch}.tar.zst"
+exe-path = "hc"
+
+[platform.macos]
+download-file = "hylo-v{version}-macos-{arch}.tar.zst"
+exe-path = "hc"
+
+[platform.windows]
+download-file = "hylo-v{version}-windows-{arch}.tar.zst"
+exe-path = "hc"
+
+[install]
+download-url = "https://github.com/hylo-lang/hylo-new/releases/download/v{version}/{download_file}"
+
+[install.arch]
+aarch64 = "arm64"
+x86_64 = "x64"
+
+[install.exes.hc]
+exe-path = "hc"
+primary = true
+
+[resolve]
+git-url = "https://github.com/hylo-lang/hylo-new"

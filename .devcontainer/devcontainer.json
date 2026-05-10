@@ -1,10 +1,9 @@
 {
-	"name": "appthrust/proto-toml-plugin",
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-	"runArgs": ["--platform=linux/amd64"],
-	"workspaceFolder": "/workspace",
-	"remoteEnv": {
-		"PATH": "/root/.proto/shims:/root/.proto/bin:${containerEnv:PATH}"
+	"name": "Proto TOML Plugins",
+	"build": {
+		"dockerfile": "Dockerfile"
 	},
-	"postCreateCommand": ".devcontainer/setup.sh"
+	"runArgs": ["--platform=linux/amd64"],
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"remoteUser": "node"
 }

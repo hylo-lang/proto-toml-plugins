@@ -1,11 +1,10 @@
-// biome-ignore lint/nursery/noRestrictedImports: <explanation>
 import { readFileSync } from "node:fs";
 import { cp, mkdtemp } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join as pathJoin } from "node:path";
 import toml from "toml";
 import { test } from "vitest";
-import { $ as $$, type Shell, cd } from "zx/core";
+import { $ as $$, type Shell } from "zx/core";
 
 export function run({
 	name,
@@ -27,10 +26,8 @@ export function run({
 		const dir = await mkdtemp(`${tmpdir()}/proto-plugin-test-${name}`);
 		const tomlPathDist = pathJoin(dir, "plugin.toml");
 		await cp(tomlPathSource, tomlPathDist);
-		cd(dir);
-		await $`pwd`;
-		await $`proto plugin add ${name} source:./plugin.toml`;
-		await $`proto install ${name} latest`;
+		
+		await $`(cd ${dir} && pwd && proto plugin add ${name} source:./plugin.toml && proto install ${name} latest)`;
 		if (afterInstall) {
 			await afterInstall($);
 		}
